@@ -1,0 +1,5 @@
+# OS files (Anthropic's directory refuses these in a plugin folder)
+.DS_Store
+Thumbs.db
+desktop.ini
+__MACOSX/

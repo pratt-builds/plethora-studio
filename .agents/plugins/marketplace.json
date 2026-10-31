@@ -1,0 +1,20 @@
+{
+  "name": "plethora",
+  "interface": {
+    "displayName": "Plethora"
+  },
+  "plugins": [
+    {
+      "name": "plethora-studio",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Creativity"
+    }
+  ]
+}

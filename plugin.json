@@ -1,0 +1,28 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "plethora-studio",
+  "version": "0.1.0",
+  "description": "Make a Plethora Bit from your idea and upload it to Plethora Studio as a draft. Bundles the Plethora skill and the Plethora MCP server. No login or API key: you approve a pairing code in the Plethora app.",
+  "author": {
+    "name": "Plethora"
+  },
+  "homepage": "https://plethora.studio",
+  "repository": "https://github.com/pratt-builds/plethora-studio",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Plethora Studio",
+        "shortDescription": "Upload your idea to Plethora as a draft Bit",
+        "longDescription": "Tell your agent your idea and say \"upload to plethora studio\". It builds a Bit for the Plethora phone app, shows you a pairing code to approve in the app, and uploads the Bit as a draft. No login or API key.",
+        "developerName": "Plethora",
+        "category": "Creativity",
+        "websiteURL": "https://plethora.studio",
+        "defaultPrompt": [
+          "Turn my idea into a Plethora Bit and upload to plethora studio",
+          "Put this on Plethora as a draft"
+        ]
+      }
+    }
+  }
+}
