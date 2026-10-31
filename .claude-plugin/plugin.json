@@ -1,11 +1,17 @@
 {
   "name": "plethora-studio",
-  "version": "0.1.0",
+  "displayName": "Plethora Studio",
+  "version": "0.1.1",
   "description": "Make a Plethora Bit from your idea and upload it to Plethora Studio as a draft. Bundles the Plethora skill and the Plethora MCP server. No login or API key: you approve a pairing code in the Plethora app.",
   "author": {
     "name": "Plethora"
   },
   "homepage": "https://plethora.studio",
   "repository": "https://github.com/pratt-builds/plethora-studio",
-  "license": "MIT"
+  "license": "MIT",
+  "icon": "./.claude-plugin/icon.png",
+  "documentationUrl": "https://github.com/pratt-builds/plethora-studio#readme",
+  "supportUrl": "https://create.plethora.studio/support",
+  "privacyPolicyUrl": "https://legal.plethora.studio/privacy",
+  "termsOfServiceUrl": "https://legal.plethora.studio/terms"
 }

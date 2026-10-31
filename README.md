@@ -59,25 +59,15 @@ Add the MCP server as a custom connector with the URL
   the URL, set authentication to none, accept the warning, then Create as a
   plugin.
 
-## Sandboxed agents
-
-If your agent runs in a sandbox, give it network access to Plethora:
-
-- Claude Code on the web or in the Claude app: Network access → Full, or
-  Custom with `plethora.studio` and `agent.plethora.studio`.
-- Codex cloud: turn internet access on, allow all domains or just those two
-  hosts, and allow all HTTP methods.
-- Codex on a computer: approve network access when Codex asks.
-
 ## What it contacts and stores
 
-Hosts contacted: agent.plethora.studio only (docs, pairing, draft upload over
-HTTPS). The plugin stores nothing.
+Hosts contacted: agent.plethora.studio only, through the MCP server (Bit
+reference, pairing, draft upload over HTTPS). The plugin stores nothing.
 
-The agent reads the Bit guide, starts a pairing, and at upload sends the Bit's
-title, description, tags, source and manifest. The plugin has no hooks,
-scripts or binaries: it is one skill plus the address of one remote MCP
-server.
+The agent reads the parts of the Bit reference it needs, starts a pairing, and
+at upload sends only the Bit's title, description, tags, source and manifest.
+The plugin has no hooks, scripts or binaries: it is one skill plus the address
+of one remote MCP server.
 
 ## How pairing keeps it safe
 
@@ -95,7 +85,12 @@ the Bits and drafts you upload.
 
 ## Support
 
-Visit [plethora.studio](https://plethora.studio).
+Visit [create.plethora.studio/support](https://create.plethora.studio/support)
+or write to pratt@plethora.studio.
+
+## Security
+
+Report security issues to pratt@plethora.studio. See [SECURITY.md](SECURITY.md).
 
 ## License
 
