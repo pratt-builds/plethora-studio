@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "plethora",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Turn your idea into a Plethora Bit and save it to your Plethora account as a draft. You approve the connection with a pairing code in the Plethora app or on the web.",
   "author": {
     "name": "Plethora",
@@ -47,7 +47,7 @@
               "description": "Build a new Bit and save it as a draft",
               "prompt": "Make a tiny tarot reader and upload to plethora studio.",
               "tools_triggered": "get_bit_guide, start_pairing, wait_for_pairing, upload_draft",
-              "expected_behavior": "Reads the Bit guide, writes a tarot Bit and shows an 8-character pairing code with an approval link. Open the link and sign in with the email and password of the test account, which are in the description of the walkthrough video, then select Approve agent. No phone is needed. It saves the Bit and reports Saved draft with its title. The draft appears, unpublished, at create.plethora.studio/drafts."
+              "expected_behavior": "Reads the Bit guide, writes a tarot Bit and shows an 8-character pairing code with an approval link. Open the link and sign in with the email and password of the test account, which are in the description of the walkthrough video, then select Approve agent. No phone is needed. It saves the Bit and reports Saved draft with its title. The draft is unpublished. Drafts are listed in the Plethora app under Create, Drafts, not on the website."
             },
             {
               "description": "Build a game with a score",

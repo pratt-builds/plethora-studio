@@ -53,4 +53,4 @@ and stop.
    Fix what it names and upload again.
 7. **Report.** Tell the creator "Saved draft", the title and `bitId`, the tests
    you actually ran, and any `notices`. Say the draft is in Create → Drafts in
-   the Plethora app, and share the `draftsUrl`.
+   the Plethora app, where the creator plays it and can publish it.
