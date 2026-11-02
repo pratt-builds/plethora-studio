@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "plethora",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Turn your idea into a Plethora Bit and save it to your Plethora account as a draft. You approve the connection with a pairing code in the Plethora app or on the web.",
   "author": {
     "name": "Plethora",
@@ -10,7 +10,12 @@
   "homepage": "https://plethora.studio",
   "repository": "https://github.com/pratt-builds/plethora-studio",
   "license": "MIT",
-  "keywords": ["plethora", "bits", "games", "creative"],
+  "keywords": [
+    "plethora",
+    "bits",
+    "games",
+    "creative"
+  ],
   "extensions": {
     "com.openai": {
       "interface": {
@@ -19,7 +24,10 @@
         "longDescription": "Plethora is a phone app (iPhone and Android) of Bits: tiny interactive games, toys, puzzles, art and tools. Tell ChatGPT your idea and it builds a Bit and saves it to your Plethora account as a draft.\n\nHow it works: ChatGPT reads the Plethora Bit reference, writes the Bit and starts a pairing. It shows you an 8-character code and an approval link. You approve in the Plethora app, or on create.plethora.studio while signed in to your account. ChatGPT then gets a key that can only save drafts, lasts 4 hours and can be revoked at create.plethora.studio/agents. Each upload is checked against the Bit rules; a refused upload saves nothing and says what to fix. Uploading again with the same title updates that draft.\n\nLimits: it never publishes. You play the draft in the app and publish it yourself. You need a free Plethora account (16+). No password or API key is shared with ChatGPT.",
         "developerName": "Plethora",
         "category": "Creativity",
-        "capabilities": ["Build a Bit from your idea", "Save Bits as drafts in your Plethora account"],
+        "capabilities": [
+          "Build a Bit from your idea",
+          "Save Bits as drafts in your Plethora account"
+        ],
         "websiteURL": "https://plethora.studio",
         "supportURL": "https://create.plethora.studio/support",
         "privacyPolicyURL": "https://legal.plethora.studio/privacy",
@@ -39,13 +47,13 @@
               "description": "Build a new Bit and save it as a draft",
               "prompt": "Make a tiny tarot reader and upload to plethora studio.",
               "tools_triggered": "get_bit_guide, start_pairing, wait_for_pairing, upload_draft",
-              "expected_behavior": "Reads the Bit guide, writes a tarot Bit and shows an 8-character pairing code with an approval link. After the reviewer approves at the link while signed in to the test account, it saves the Bit and reports Saved draft with its title. The draft appears, unpublished, at create.plethora.studio/drafts."
+              "expected_behavior": "Reads the Bit guide, writes a tarot Bit and shows an 8-character pairing code with an approval link. Open the link and sign in with the email and password of the test account, which are in the description of the walkthrough video, then select Approve agent. No phone is needed. It saves the Bit and reports Saved draft with its title. The draft appears, unpublished, at create.plethora.studio/drafts."
             },
             {
               "description": "Build a game with a score",
               "prompt": "Make a one-button reaction game that keeps a score, and upload to plethora studio.",
               "tools_triggered": "get_bit_guide, start_pairing, wait_for_pairing, upload_draft",
-              "expected_behavior": "Builds the game to the Bit package rules and saves it as a draft, reporting Saved draft. In a chat that already paired within the last 4 hours it reuses the upload key and shows no new code; otherwise it shows a new code and approval link first."
+              "expected_behavior": "Builds the game to the Bit package rules and saves it as a draft, reporting Saved draft. In a chat that already paired within the last 4 hours it reuses the upload key and shows no new code; otherwise it shows a new code and approval link, approved the same way as the first case."
             },
             {
               "description": "Update a draft, in the same chat as the previous case",
