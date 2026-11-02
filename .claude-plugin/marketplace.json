@@ -1,12 +1,12 @@
 {
   "name": "plethora",
-  "description": "Plethora Studio for coding agents: the Plethora skill and MCP server for uploading Bits to the Plethora app as drafts.",
+  "description": "Plethora for coding agents: the Plethora skill and MCP server for uploading Bits to the Plethora app as drafts.",
   "owner": {
     "name": "Plethora"
   },
   "plugins": [
     {
-      "name": "plethora-studio",
+      "name": "plethora",
       "source": "./"
     }
   ]

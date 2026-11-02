@@ -1,8 +1,8 @@
 {
-  "name": "plethora-studio",
-  "displayName": "Plethora Studio",
-  "version": "0.1.1",
-  "description": "Make a Plethora Bit from your idea and upload it to Plethora Studio as a draft. Bundles the Plethora skill and the Plethora MCP server. No login or API key: you approve a pairing code in the Plethora app.",
+  "name": "plethora",
+  "displayName": "Plethora",
+  "version": "0.2.2",
+  "description": "Make a Plethora Bit from your idea and upload it to Plethora as a draft. Bundles the Plethora skill and the Plethora MCP server. No login or API key: you approve a pairing code in the Plethora app.",
   "author": {
     "name": "Plethora"
   },

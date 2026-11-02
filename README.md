@@ -1,6 +1,6 @@
-# Plethora Studio
+# Plethora
 
-Plethora Studio gives your coding agent the Plethora skill and the Plethora MCP
+Plethora gives your coding agent the Plethora skill and the Plethora MCP
 server, so you can turn an idea into a Bit for [Plethora](https://plethora.studio),
 the phone app of tiny interactive Bits. Tell your agent the idea and say
 "upload to plethora studio". The agent builds the Bit, shows you a pairing code
@@ -16,13 +16,13 @@ In a Claude Code session:
 
 ```text
 /plugin marketplace add pratt-builds/plethora-studio
-/plugin install plethora-studio@plethora
+/plugin install plethora@plethora
 ```
 
 From your shell, the same steps are
 `claude plugin marketplace add pratt-builds/plethora-studio` and
-`claude plugin install plethora-studio@plethora`. The skill runs as
-`/plethora-studio:upload-to-plethora-studio`, and Claude also picks it up when
+`claude plugin install plethora@plethora`. The skill runs as
+`/plethora:upload-to-plethora-studio`, and Claude also picks it up when
 you say "upload to plethora studio".
 
 MCP server only, without the skill:
@@ -35,11 +35,11 @@ claude mcp add --transport http plethora https://agent.plethora.studio/mcp
 
 ```bash
 codex plugin marketplace add pratt-builds/plethora-studio
-codex plugin add plethora-studio@plethora
+codex plugin add plethora@plethora
 ```
 
 You can also add the marketplace, run `/plugins` in Codex and install
-Plethora Studio from the Plethora marketplace. Start a new session before you
+Plethora from the Plethora marketplace. Start a new session before you
 use it.
 
 MCP server only, without the skill:

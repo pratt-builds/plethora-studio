@@ -5,7 +5,7 @@
   },
   "plugins": [
     {
-      "name": "plethora-studio",
+      "name": "plethora",
       "source": {
         "source": "local",
         "path": "./"
