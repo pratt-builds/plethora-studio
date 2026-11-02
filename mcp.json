@@ -3,7 +3,14 @@
   "mcpServers": {
     "plethora": {
       "type": "streamable-http",
-      "url": "https://agent.plethora.studio/mcp"
+      "url": "https://agent.plethora.studio/mcp",
+      "extensions": {
+        "com.openai": {
+          "auth": {
+            "type": "none"
+          }
+        }
+      }
     }
   }
 }

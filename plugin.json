@@ -1,27 +1,92 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "plethora-studio",
-  "version": "0.1.1",
-  "description": "Make a Plethora Bit from your idea and upload it to Plethora Studio as a draft. Bundles the Plethora skill and the Plethora MCP server. No login or API key: you approve a pairing code in the Plethora app.",
+  "name": "plethora",
+  "version": "0.2.0",
+  "description": "Turn your idea into a Plethora Bit and save it to your Plethora account as a draft. You approve the connection with a pairing code in the Plethora app or on the web.",
   "author": {
-    "name": "Plethora"
+    "name": "Plethora",
+    "url": "https://plethora.studio"
   },
   "homepage": "https://plethora.studio",
   "repository": "https://github.com/pratt-builds/plethora-studio",
   "license": "MIT",
+  "keywords": ["plethora", "bits", "games", "creative"],
   "extensions": {
     "com.openai": {
       "interface": {
-        "displayName": "Plethora Studio",
-        "shortDescription": "Upload your idea to Plethora as a draft Bit",
-        "longDescription": "Tell your agent your idea and say \"upload to plethora studio\". It builds a Bit for the Plethora phone app, shows you a pairing code to approve in the app, and uploads the Bit as a draft. No login or API key.",
+        "displayName": "Plethora",
+        "shortDescription": "Turn ideas into Plethora Bits",
+        "longDescription": "Plethora is a phone app (iPhone and Android) of Bits: tiny interactive games, toys, puzzles, art and tools. Tell ChatGPT your idea and it builds a Bit and saves it to your Plethora account as a draft.\n\nHow it works: ChatGPT reads the Plethora Bit reference, writes the Bit and starts a pairing. It shows you an 8-character code and an approval link. You approve in the Plethora app, or on create.plethora.studio while signed in to your account. ChatGPT then gets a key that can only save drafts, lasts 4 hours and can be revoked at create.plethora.studio/agents. Each upload is checked against the Bit rules; a refused upload saves nothing and says what to fix. Uploading again with the same title updates that draft.\n\nLimits: it never publishes. You play the draft in the app and publish it yourself. You need a free Plethora account (16+). No password or API key is shared with ChatGPT.",
         "developerName": "Plethora",
         "category": "Creativity",
+        "capabilities": ["Build a Bit from your idea", "Save Bits as drafts in your Plethora account"],
         "websiteURL": "https://plethora.studio",
+        "supportURL": "https://create.plethora.studio/support",
+        "privacyPolicyURL": "https://legal.plethora.studio/privacy",
+        "termsOfServiceURL": "https://legal.plethora.studio/terms",
         "defaultPrompt": [
-          "Turn my idea into a Plethora Bit and upload to plethora studio",
-          "Put this on Plethora as a draft"
-        ]
+          "Make a tiny tarot reader and upload to plethora studio",
+          "Turn my idea into a Plethora Bit and save it as a draft",
+          "What is a Plethora Bit?"
+        ],
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/logo.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Build a new Bit and save it as a draft",
+              "prompt": "Make a tiny tarot reader and upload to plethora studio.",
+              "tools_triggered": "get_bit_guide, start_pairing, wait_for_pairing, upload_draft",
+              "expected_behavior": "Reads the Bit guide, writes a tarot Bit and shows an 8-character pairing code with an approval link. After the reviewer approves at the link while signed in to the test account, it saves the Bit and reports Saved draft with its title. The draft appears, unpublished, at create.plethora.studio/drafts."
+            },
+            {
+              "description": "Build a game with a score",
+              "prompt": "Make a one-button reaction game that keeps a score, and upload to plethora studio.",
+              "tools_triggered": "get_bit_guide, start_pairing, wait_for_pairing, upload_draft",
+              "expected_behavior": "Builds the game to the Bit package rules and saves it as a draft, reporting Saved draft. In a chat that already paired within the last 4 hours it reuses the upload key and shows no new code; otherwise it shows a new code and approval link first."
+            },
+            {
+              "description": "Update a draft, in the same chat as the previous case",
+              "prompt": "Make the button bigger and upload it again.",
+              "tools_triggered": "upload_draft",
+              "expected_behavior": "Changes the Bit and saves it under the same title. The existing draft is updated rather than a second one created, and it reports Saved draft."
+            },
+            {
+              "description": "Explain what a Bit is",
+              "prompt": "Use Plethora to explain what a Bit is and what a Bit package contains.",
+              "tools_triggered": "get_bit_guide",
+              "expected_behavior": "Reads the Bit guide and explains that a Bit is a small interactive piece for the Plethora phone app and what its package holds. It starts no pairing and saves nothing."
+            },
+            {
+              "description": "Look up a feature in the Bit reference",
+              "prompt": "Using the Plethora Bit guide, how does a Bit keep a player's high score?",
+              "tools_triggered": "get_bit_guide",
+              "expected_behavior": "Reads the relevant SDK topic and explains local, shared and leaderboard state for scores. It starts no pairing and saves nothing."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Publishing is not available: no tool publishes, so it should say the creator publishes in the Plethora app, and not act",
+              "prompt": "Publish my latest Plethora draft so everyone can see it."
+            },
+            {
+              "description": "Deleting is not available: no tool deletes, so it should say so and not act",
+              "prompt": "Delete all my Plethora drafts."
+            },
+            {
+              "description": "It must not ask for or use a password: access comes only from a pairing the creator approves",
+              "prompt": "Log in to my Plethora account with my email and password and upload this."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "This plugin does not sell products or process payments."
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "First release: build a Plethora Bit from your idea and save it to your account as a draft, approved with a pairing code."
       }
     }
   }
